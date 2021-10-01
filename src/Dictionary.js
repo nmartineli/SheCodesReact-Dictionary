@@ -26,9 +26,19 @@ export default function Dictionary() {
 
   return (
     <div className="Dictionary">
-      <h2>Search for a word</h2>
-      <form onSubmit={search}>
-        <input type="search" autoFocus={true} onChange={handleQuery} />
+      <h1 className="dictionary--title">Dictionary</h1>
+      <h2 className="dictionary--text">Search for a word</h2>
+      <form onSubmit={search} className="search-form">
+        <input
+          type="search"
+          autoFocus={true}
+          onChange={handleQuery}
+          className="search-form--input"
+          placeholder="Type your word"
+        />
+        <button type="submit" className="search-form--button">
+          <img src="/img/search-icon.svg" alt="search icon" srcset="" />
+        </button>
       </form>
       <Results results={results} />
     </div>

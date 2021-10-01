@@ -1,0 +1,29 @@
+.Dictionary {
+  margin-top: 2rem;
+  box-shadow: 5px 5px 15px 5px rgba(135, 135, 135, 0.3);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.Dictionary .dictionary--title {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.Dictionary .dictionary--text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.Dictionary .search-form {
+  margin-bottom: 2rem;
+}
+.Dictionary .search-form--input {
+  border: 1px #ccc solid;
+  border-radius: 4px;
+  padding: 0.3rem;
+}
+
+.Dictionary .search-form--button {
+  background-color: #fff;
+}
