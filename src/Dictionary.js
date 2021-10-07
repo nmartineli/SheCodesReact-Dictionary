@@ -29,7 +29,7 @@ export default function Dictionary(props) {
     const headers = {
       headers: { Authorization: `Bearer ${pexelsApiKey}` },
     };
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${query}`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=9`;
     axios.get(pexelsApiUrl, headers).then(handlePexelsResponse);
   }
 
