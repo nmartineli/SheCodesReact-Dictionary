@@ -1,0 +1,21 @@
+.Photos .photos-box {
+  margin-top: 1rem;
+  box-shadow: 4px 4px 10px rgba(135, 135, 135, 0.2);
+  padding: 1.4rem 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.Photos .photos-box--item-link {
+  margin: 10px 5px;
+}
+
+.Photos .photos-box--item-img {
+  max-width: 250px;
+  height: 100%;
+  box-shadow: 4px 4px 15px rgba(135, 135, 135, 0.5);
+  border-radius: 0.5rem;
+}

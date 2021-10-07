@@ -6,7 +6,7 @@
 }
 
 .App {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -19,4 +19,10 @@
 
 .App .footer--link {
   color: #666666;
+}
+
+@media (max-width: 961px) {
+  .App {
+    margin: 0 1rem;
+  }
 }

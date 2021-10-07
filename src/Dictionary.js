@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import Results from './Results';
+import Photos from './Photos';
 
 import './Dictionary.css';
 
@@ -9,14 +10,27 @@ export default function Dictionary(props) {
   const [query, setQuery] = useState(props.defaultKeyword);
   const [results, setResults] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [photos, setPhotos] = useState();
 
-  function handleResponse(res) {
+  function handleDictionaryResponse(res) {
     setResults(res.data[0]);
+  }
+
+  function handlePexelsResponse(res) {
+    setPhotos(res.data.photos);
   }
 
   function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${query}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(handleDictionaryResponse);
+
+    const pexelsApiKey =
+      '563492ad6f917000010000018e21773e815f4f9eb48b3d99d6017ed6';
+    const headers = {
+      headers: { Authorization: `Bearer ${pexelsApiKey}` },
+    };
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${query}`;
+    axios.get(pexelsApiUrl, headers).then(handlePexelsResponse);
   }
 
   function handleSubmit(event) {
@@ -32,6 +46,7 @@ export default function Dictionary(props) {
   function handleQuery(event) {
     setQuery(event.target.value);
   }
+
   if (loaded) {
     return (
       <div className="Dictionary">
@@ -50,7 +65,7 @@ export default function Dictionary(props) {
                 defaultValue={props.defaultKeyword}
               />
               <button type="submit" className="search-box--button">
-                <img src="/img/search-icon.svg" alt="search icon" srcset="" />
+                <img src="/img/search-icon.svg" alt="search icon" />
               </button>
             </div>
           </form>
@@ -59,6 +74,7 @@ export default function Dictionary(props) {
           </div>
         </section>
         <Results results={results} />
+        <Photos photos={photos} />
       </div>
     );
   } else {
