@@ -1,29 +1,42 @@
-.Dictionary {
-  margin-top: 2rem;
-  box-shadow: 5px 5px 15px 5px rgba(135, 135, 135, 0.3);
-  padding: 2rem;
-  border-radius: 2rem;
+.Dictionary .search-box {
+  margin-top: 1rem;
+  box-shadow: 0px 4px 10px rgba(135, 135, 135, 0.2);
+  padding: 1.4rem 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
 }
 
-.Dictionary .dictionary--title {
+.Dictionary .search-box--title {
   font-weight: 700;
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2.3rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
 }
 
-.Dictionary .dictionary--text {
-  font-size: 2rem;
+.Dictionary .search-box--text {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-.Dictionary .search-form {
-  margin-bottom: 2rem;
-}
-.Dictionary .search-form--input {
-  border: 1px #ccc solid;
-  border-radius: 4px;
-  padding: 0.3rem;
+
+.Dictionary .search-box--form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
 }
 
-.Dictionary .search-form--button {
+.Dictionary .search-box--input {
+  border: 1px #ccc solid;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.Dictionary .search-box--button {
   background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.Dictionary .search-box--hints {
+  font-size: 0.8rem;
 }

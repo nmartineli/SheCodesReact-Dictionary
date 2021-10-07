@@ -5,42 +5,64 @@ import Results from './Results';
 
 import './Dictionary.css';
 
-export default function Dictionary() {
-  const [query, setQuery] = useState(null);
+export default function Dictionary(props) {
+  const [query, setQuery] = useState(props.defaultKeyword);
   const [results, setResults] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   function handleResponse(res) {
     setResults(res.data[0]);
   }
 
-  function search(event) {
-    event.preventDefault();
-
+  function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${query}`;
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function load() {
+    setLoaded(true);
+    search();
   }
 
   function handleQuery(event) {
     setQuery(event.target.value);
   }
-
-  return (
-    <div className="Dictionary">
-      <h1 className="dictionary--title">Dictionary</h1>
-      <h2 className="dictionary--text">Search for a word</h2>
-      <form onSubmit={search} className="search-form">
-        <input
-          type="search"
-          autoFocus={true}
-          onChange={handleQuery}
-          className="search-form--input"
-          placeholder="Type your word"
-        />
-        <button type="submit" className="search-form--button">
-          <img src="/img/search-icon.svg" alt="search icon" srcset="" />
-        </button>
-      </form>
-      <Results results={results} />
-    </div>
-  );
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section className="search-box">
+          <h1 className="search-box--title">Dictionary</h1>
+          <h2 className="search-box--text">
+            What word do you want to look up?
+          </h2>
+          <form onSubmit={handleSubmit}>
+            <div className="search-box--form">
+              <input
+                type="search"
+                onChange={handleQuery}
+                className="search-box--input"
+                placeholder="Type your word"
+                defaultValue={props.defaultKeyword}
+              />
+              <button type="submit" className="search-box--button">
+                <img src="/img/search-icon.svg" alt="search icon" srcset="" />
+              </button>
+            </div>
+          </form>
+          <div className="search-box--hints">
+            suggested words: sunset, wine, cats, plants...
+          </div>
+        </section>
+        <Results results={results} />
+      </div>
+    );
+  } else {
+    load();
+    return 'Loading';
+  }
 }

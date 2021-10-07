@@ -1,0 +1,9 @@
+.Synonyms .synonyms--list {
+  margin-top: 0.5rem;
+}
+
+.Synonyms .synonyms--item {
+  display: inline-block;
+  padding-right: 0.9rem;
+  font-size: 0.9rem;
+}

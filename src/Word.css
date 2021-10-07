@@ -1,0 +1,29 @@
+.Word .word-result {
+  display: flex;
+  align-items: center;
+}
+
+.Word .word {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff647f;
+  margin-bottom: 0.2rem;
+
+  margin-right: 0.7rem;
+}
+
+.Word .word--audio-icon {
+  width: 2rem;
+}
+
+.Word .word--audio-icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.Word .word--phonetic {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #666666;
+  padding-left: 0.3rem;
+}

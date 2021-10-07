@@ -4,3 +4,19 @@
   border: 0;
   box-shadow: 0;
 }
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.App .footer {
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 1rem 0 2rem 0;
+  color: #666666;
+}
+
+.App .footer--link {
+  color: #666666;
+}

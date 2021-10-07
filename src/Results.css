@@ -1,6 +1,8 @@
+.Results .results--meanings,
 .Results .results--word {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #ff647f;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0px 4px 10px rgba(135, 135, 135, 0.2);
+  padding: 1.4rem 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
 }
